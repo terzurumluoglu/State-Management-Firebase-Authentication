@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './_components/home/home.module';
 
+import { FirebaseModule } from "./_module";
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +14,9 @@ import { HomeModule } from './_components/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+
+    FirebaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
