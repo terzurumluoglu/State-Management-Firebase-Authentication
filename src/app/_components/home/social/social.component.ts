@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LOGINTYPES } from "../../../_model/login-type";
 
 @Component({
   selector: 'app-social',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialComponent implements OnInit {
 
+  loginTypes: any[] = LOGINTYPES;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  SignIn(type: string) {
+    console.log(type);
   }
 
 }

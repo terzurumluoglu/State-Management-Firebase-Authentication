@@ -1,1 +1,4 @@
-<p>social works!</p>
+<div class="btn-group" style="padding-left: 2rem;" role="group" aria-label="Basic example">
+    <button type="button" [class]="loginType.cls" *ngFor="let loginType of loginTypes" [innerText]="loginType.title"
+        (click)="SignIn(loginType.title)"></button>
+</div>
