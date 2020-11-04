@@ -1,4 +1,11 @@
-<div class="btn-group" style="padding-left: 2rem;" role="group" aria-label="Basic example">
+<div *ngIf="!authState.isAuthenticated" class="btn-group" style="padding-left: 2rem;" role="group"
+    aria-label="Basic example">
     <button type="button" [class]="loginType.cls" *ngFor="let loginType of loginTypes" [innerText]="loginType.title"
         (click)="SignIn(loginType.title)"></button>
+</div>
+
+<div *ngIf="authState.isAuthenticated" class="btn-group right" style="padding-left: 2rem;" role="group"
+    aria-label="Basic example">
+    <button *ngIf="authState.isAuthenticated" type="button" class="btn btn-secondary" (click)="SignOut()">Log
+        Out</button>
 </div>

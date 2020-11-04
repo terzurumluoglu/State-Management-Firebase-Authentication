@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LOGINTYPES } from "../../../_model/login-type";
-
+import { Store } from '@ngrx/store';
+import { AppState, AuthState, LogIn, LogOut } from 'src/app/_module/state/auth';
+import { AuthService } from 'src/app/_services';
+import { LOGINTYPES } from "../../../_model/signIn";
 @Component({
   selector: 'app-social',
   templateUrl: './social.component.html',
@@ -9,13 +11,27 @@ import { LOGINTYPES } from "../../../_model/login-type";
 export class SocialComponent implements OnInit {
 
   loginTypes: any[] = LOGINTYPES;
-  constructor() { }
+  authState: AuthState;
+  constructor(
+    private _auth: AuthService,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.getState();
   }
 
   SignIn(type: string) {
-    console.log(type);
+    this.store.dispatch(new LogIn(type));
   }
 
+  SignOut() {
+    this.store.dispatch(new LogOut());
+  }
+
+  getState() {
+    this._auth.authState$.subscribe((p: AuthState) => {
+      this.authState = p;
+    })
+  }
 }
