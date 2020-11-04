@@ -3,8 +3,18 @@
         <main class="col-md-10 col-xl-8 align-self-center py-md-3 pl-md-5 bd-content" role="main">
             <div class="bd-example">
                 <div class="jumbotron">
-                    <h3 class="display-4">Hello, User!</h3>
-                    <hr class="my-4">
+
+                    <div *ngIf="authState.isAuthenticated;then in else out">here is ignored</div>
+
+                    <ng-template #in>
+                        <h3 class="display-4" [innerText]="'Hello, ' + authState.user.displayName + '!'"></h3>
+                        <hr class="my-4">
+                    </ng-template>
+
+                    <ng-template #out>
+                        <h3 class="display-4">Who Are You?</h3>
+                        <hr class="my-4">
+                    </ng-template>
                 </div>
             </div>
             <div>
