@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SocialComponent } from './social/social.component';
 import { HomeComponent } from './home.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -13,7 +12,7 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }
