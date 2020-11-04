@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import * as firebase from "firebase/app";
 import 'firebase/auth';
+import { from } from 'rxjs';
 import { providers } from 'src/app/_model/signIn';
 
 @Injectable({
@@ -16,10 +17,10 @@ export class AuthService {
   SignIn(type: string) {
     let provider = providers.find(p => p.type.name === type);
     provider.type.provider.addScope(provider.type.scope);
-    return this._fireAuth.signInWithPopup(provider.type.provider);
+    return from(this._fireAuth.signInWithPopup(provider.type.provider);
   }
 
   SignOut() {
-    return this._fireAuth.signOut();
+    return from(this._fireAuth.signOut());
   }
 }
