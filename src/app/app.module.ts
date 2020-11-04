@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './_components/home/home.module';
-
-import { FirebaseModule } from "./_module";
+import { AppStateModule, FirebaseModule } from "./_module";
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import { FirebaseModule } from "./_module";
     AppRoutingModule,
     HomeModule,
 
-    FirebaseModule
+    FirebaseModule,
+    AppStateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
