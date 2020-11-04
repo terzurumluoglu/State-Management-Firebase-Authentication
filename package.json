@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+
+    "build-prod" : "ng build --configuration=production --base-href https://terzurumluoglu.github.io/State-Management-Firebase-Authentication/",
+    "deploy-github" : "ngh --dir=dist/State-Management-Firebase-Authentication"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +27,7 @@
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^10.0.1",
     "@ngrx/store": "^10.0.1",
+    "angular-cli-ghpages": "^0.6.2",
     "bootstrap": "^4.5.3",
     "firebase": "^8.0.0",
     "jquery": "^3.5.1",
